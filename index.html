@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FileStop | Bookkeeping, Tax, Payroll & Trucking Compliance</title>
+    <meta
+      name="description"
+      content="FileStop provides bookkeeping, tax preparation, payroll support, trucking compliance and business consulting in Denver, Colorado."
+    />
+    <style>
+      :root {
+        --orange: #df5a0a;
+        --ink: #101010;
+        --muted: #676767;
+        --paper: #fffaf5;
+        --line: #eadfd6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, Arial, sans-serif;
+        color: var(--ink);
+        background: #fff;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: auto;
+        padding: 0 24px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: #fffffff2;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #eee;
+        z-index: 10;
+      }
+      .nav {
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        font-size: 25px;
+      }
+      .logo img {
+        width: 62px;
+        height: 62px;
+        object-fit: cover;
+        object-position: top left;
+        border-radius: 4px;
+      }
+      .navlinks {
+        display: flex;
+        gap: 26px;
+        align-items: center;
+        font-size: 14px;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--orange);
+        color: #fff;
+        padding: 14px 20px;
+        border-radius: 7px;
+        font-weight: 750;
+      }
+      .btn.dark {
+        background: #111;
+      }
+      .hero {
+        background: linear-gradient(120deg, #fff 0, #fff7f0 55%, #f4e5d8 100%);
+        padding: 86px 0 72px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .eyebrow {
+        color: var(--orange);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 13px;
+      }
+      h1 {
+        font-size: 58px;
+        line-height: 1.02;
+        margin: 14px 0 22px;
+        letter-spacing: -0.04em;
+      }
+      .hero p {
+        font-size: 19px;
+        line-height: 1.65;
+        color: #4d4d4d;
+        max-width: 720px;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+      }
+      .trust {
+        display: flex;
+        gap: 24px;
+        margin-top: 30px;
+        color: #555;
+        font-size: 14px;
+      }
+      .folder {
+        background: #050505;
+        color: #fff;
+        border-radius: 14px;
+        padding: 35px;
+        min-height: 390px;
+        position: relative;
+      }
+      .folder:before {
+        content: "";
+        position: absolute;
+        top: -28px;
+        left: 0;
+        width: 46%;
+        height: 45px;
+        background: #050505;
+        border-radius: 12px 12px 0 0;
+        clip-path: polygon(0 0, 55% 0, 72% 100%, 100% 100%, 100% 100%, 0 100%);
+      }
+      .folder h3 {
+        font-size: 28px;
+        margin: 10px 0;
+      }
+      .folder ul {
+        padding-left: 20px;
+        line-height: 2;
+        color: #ddd;
+      }
+      .folder .orange {
+        color: #ff7623;
+      }
+      .section {
+        padding: 82px 0;
+      }
+      .section.alt {
+        background: var(--paper);
+      }
+      .center {
+        text-align: center;
+        max-width: 760px;
+        margin: auto;
+      }
+      .center h2,
+      .section h2 {
+        font-size: 40px;
+        letter-spacing: -0.025em;
+        margin: 10px 0 14px;
+      }
+      .sub {
+        color: #666;
+        line-height: 1.65;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 42px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 26px;
+        background: #fff;
+      }
+      .icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 8px;
+        background: #fff0e6;
+        color: var(--orange);
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        font-size: 22px;
+      }
+      .card h3 {
+        margin: 18px 0 10px;
+      }
+      .card p {
+        color: #666;
+        line-height: 1.55;
+        font-size: 14px;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 55px;
+        align-items: center;
+      }
+      .check {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 25px;
+      }
+      .check div {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+      .price {
+        background: #111;
+        color: #fff;
+        border-radius: 14px;
+        padding: 34px;
+      }
+      .price h3 {
+        font-size: 28px;
+        margin-top: 0;
+      }
+      .price .money {
+        font-size: 48px;
+        font-weight: 850;
+      }
+      .price small {
+        color: #bbb;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 36px;
+      }
+      .step {
+        padding: 28px;
+        border-top: 4px solid var(--orange);
+        background: #fff;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 8px 25px #0000000b;
+      }
+      .num {
+        font-size: 13px;
+        color: var(--orange);
+        font-weight: 800;
+      }
+      .cta {
+        background: var(--orange);
+        color: #fff;
+        padding: 65px 0;
+      }
+      .cta .split {
+        grid-template-columns: 1.3fr 0.7fr;
+      }
+      .cta h2 {
+        font-size: 42px;
+        margin: 0 0 12px;
+      }
+      .cta p {
+        color: #ffe8d8;
+      }
+      .cta .btn {
+        background: #fff;
+        color: #111;
+      }
+      .brands {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+      }
+      .pill {
+        border: 1px solid #ddd;
+        border-radius: 999px;
+        padding: 10px 15px;
+        background: #fff;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .credentials {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 38px;
+      }
+      .credential {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 24px;
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .credential .brandname {
+        font-size: 24px;
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+      .credential .status {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--orange);
+        font-weight: 800;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .credential p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.55;
+        margin-bottom: 0;
+      }
+      .disclosure {
+        margin-top: 20px;
+        padding: 16px 18px;
+        border-left: 3px solid var(--orange);
+        background: #fff7f0;
+        color: #666;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .techstrip {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      .techstrip span {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 9px 12px;
+        background: #fff;
+        font-size: 12px;
+        font-weight: 750;
+      }
+      footer {
+        background: #0c0c0c;
+        color: #ddd;
+        padding: 50px 0 28px;
+      }
+      footer h3 {
+        color: #fff;
+      }
+      .foot {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 40px;
+      }
+      .fine {
+        border-top: 1px solid #333;
+        margin-top: 35px;
+        padding-top: 20px;
+        color: #888;
+        font-size: 12px;
+      }
+      .legal {
+        font-size: 12px;
+        color: #777;
+        line-height: 1.5;
+        margin-top: 12px;
+      }
+      @media (max-width: 900px) {
+        .credentials {
+          grid-template-columns: 1fr 1fr;
+        }
+        .navlinks a:not(.btn) {
+          display: none;
+        }
+        .hero-grid,
+        .split,
+        .cta .split {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: 1fr 1fr;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 44px;
+        }
+        .folder {
+          margin-top: 20px;
+        }
+        .foot {
+          grid-template-columns: 1fr;
+        }
+        .check {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .credentials {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          padding-top: 55px;
+        }
+        h1 {
+          font-size: 38px;
+        }
+        .actions {
+          flex-direction: column;
+        }
+        .trust {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="logo" href="#"
+          ><img src="filestop-logo.jpg" alt="FileStop logo" /><span
+            >FILESTOP</span
+          ></a
+        >
+        <nav class="navlinks">
+          <a href="#services">Services</a><a href="#trucking">Trucking</a
+          ><a href="#tax">Tax & Books</a><a href="#technology">Platforms</a
+          ><a href="#about">About</a
+          ><a class="btn" href="#book">Book Consultation</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="eyebrow">Business & Financial Services</div>
+            <h1>Your business paperwork.<br />Handled.</h1>
+            <p>
+              Bookkeeping, payroll support, tax preparation and transportation
+              compliance—all from one practical business service center.
+              FileStop helps small businesses stay organized, compliant and
+              ready for what comes next.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#book">Book & Prepay Consultation</a
+              ><a class="btn dark" href="#services">Explore Services</a>
+            </div>
+            <div class="trust">
+              <span>✓ QuickBooks ProAdvisor</span><span>✓ BILL Certified</span
+              ><span>✓ Gusto Partner</span>
+            </div>
+          </div>
+          <div class="folder">
+            <div class="eyebrow orange">FILESTOP</div>
+            <h3>One stop for the back office.</h3>
+            <ul>
+              <li>Monthly bookkeeping & cleanup</li>
+              <li>Business & individual tax filing</li>
+              <li>Payroll setup & ongoing support</li>
+              <li>FMCSA / DOT compliance</li>
+              <li>IFTA, IRP & carrier administration</li>
+              <li>Business consultation</li>
+            </ul>
+            <p style="color: #aaa">
+              Denver, Colorado • Remote service available
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="services">
+        <div class="wrap">
+          <div class="center">
+            <div class="eyebrow">Core Services</div>
+            <h2>Built around the work businesses actually need.</h2>
+            <p class="sub">
+              Our primary focus is keeping your books current, filings on track,
+              payroll organized and regulated transportation businesses
+              compliant.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <div class="icon">$</div>
+              <h3>Bookkeeping</h3>
+              <p>
+                Monthly bookkeeping, catch-up and cleanup, reconciliations,
+                financial statements, chart-of-accounts design and nonprofit
+                accounting support.
+              </p>
+            </article>
+            <article class="card">
+              <div class="icon">✓</div>
+              <h3>Trucking Compliance</h3>
+              <p>
+                New-carrier setup, FMCSA administration, driver and equipment
+                records, IFTA/IRP support, safety-audit preparation and ongoing
+                compliance.
+              </p>
+            </article>
+            <article class="card">
+              <div class="icon">P</div>
+              <h3>Payroll</h3>
+              <p>
+                Payroll setup, payroll bookkeeping, contractor tracking, payroll
+                account support and coordination of recurring payroll workflows.
+              </p>
+            </article>
+            <article class="card">
+              <div class="icon">%</div>
+              <h3>Taxes</h3>
+              <p>
+                Individual and small-business tax preparation, nonprofit
+                returns, tax document organization and year-round tax support.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section alt" id="trucking">
+        <div class="wrap split">
+          <div>
+            <div class="eyebrow">Transportation Compliance</div>
+            <h2>Compliance support from startup to ongoing operations.</h2>
+            <p class="sub">
+              Built for owner-operators and small fleets that need someone who
+              understands the administrative side of running a carrier.
+            </p>
+            <div class="check">
+              <div>USDOT / MC administration</div>
+              <div>New entrant safety audits</div>
+              <div>Driver qualification records</div>
+              <div>Vehicle & maintenance records</div>
+              <div>IFTA & mileage reporting</div>
+              <div>IRP administration</div>
+              <div>MCS-150 updates</div>
+              <div>Compliance consulting</div>
+            </div>
+          </div>
+          <div class="price">
+            <div class="eyebrow orange">Consult First</div>
+            <h3>Have a compliance problem?</h3>
+            <p>
+              Reserve a dedicated consultation slot so we can review the issue
+              before recommending filings, corrections or ongoing support.
+            </p>
+            <div class="money">Prepaid</div>
+            <small
+              >Consultation fee applied at booking. Service fees quoted
+              separately.</small
+            >
+            <div style="margin-top: 25px">
+              <a class="btn" href="#book">Reserve a Slot</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="tax">
+        <div class="wrap split">
+          <div>
+            <div class="eyebrow">TaxableBooks by FileStop</div>
+            <h2>Books that make tax time easier.</h2>
+            <p class="sub">
+              Tax and bookkeeping should work together. We organize the books
+              throughout the year so owners can see what is happening in the
+              business and prepare cleaner records for filing.
+            </p>
+            <div class="brands">
+              <span class="pill">Monthly Bookkeeping</span
+              ><span class="pill">Catch-Up / Cleanup</span
+              ><span class="pill">Small Business Tax</span
+              ><span class="pill">Nonprofit Accounting</span
+              ><span class="pill">Financial Reports</span>
+            </div>
+            <div class="techstrip">
+              <span>QuickBooks Online ProAdvisor</span
+              ><span>BILL Certified</span><span>Gusto Partner</span>
+            </div>
+          </div>
+          <div>
+            <div class="card">
+              <h3>Especially suited for</h3>
+              <p>
+                Transportation companies • Nonprofits • Home healthcare
+                businesses • Independent contractors • Local service businesses
+                • Owner-operated companies
+              </p>
+              <hr
+                style="border: 0; border-top: 1px solid #eee; margin: 24px 0"
+              />
+              <h3>Year-round support</h3>
+              <p>
+                Don't wait until tax season to find out your books need months
+                of cleanup. FileStop can maintain the records and help you
+                address issues as they happen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section alt" id="technology">
+        <div class="wrap">
+          <div class="center">
+            <div class="eyebrow">
+              Certified Technology & Industry Relationships
+            </div>
+            <h2>Tools we know. Systems that work.</h2>
+            <p class="sub">
+              FILESTOP combines hands-on service with platforms we use every day
+              for accounting, payables, payroll and transportation finance.
+              These relationships help us build practical workflows around the
+              systems our clients actually use.
+            </p>
+          </div>
+          <div class="credentials">
+            <article class="credential">
+              <div>
+                <div class="brandname">QuickBooks® Online</div>
+                <span class="status">ProAdvisor</span>
+              </div>
+              <p>
+                Bookkeeping setup, cleanup, reconciliations, reporting and
+                ongoing QuickBooks Online support.
+              </p>
+            </article>
+            <article class="credential">
+              <div>
+                <div class="brandname">BILL</div>
+                <span class="status">Certified</span>
+              </div>
+              <p>
+                Accounts payable workflows, vendor management and
+                payment-process support for growing businesses and nonprofits.
+              </p>
+            </article>
+            <article class="credential">
+              <div>
+                <div class="brandname">Gusto</div>
+                <span class="status">Partner</span>
+              </div>
+              <p>
+                Payroll setup and support designed to connect payroll activity
+                with clean, reliable bookkeeping.
+              </p>
+            </article>
+            <article class="credential">
+              <div>
+                <div class="brandname">RTS Financial</div>
+                <span class="status">Affiliate Relationship</span>
+              </div>
+              <p>
+                For trucking clients exploring factoring and related
+                transportation financial services, we can facilitate an
+                introduction to RTS Financial.
+              </p>
+            </article>
+          </div>
+          <div class="disclosure">
+            <strong>Transparency:</strong> FILESTOP may receive a referral
+            commission when an eligible trucking company enrolls with RTS
+            Financial through our referral. Clients are not required to use RTS
+            Financial, and the referral relationship does not change the fee for
+            FILESTOP's separate accounting, tax or compliance services.
+          </div>
+        </div>
+      </section>
+      <section class="section alt" id="book">
+        <div class="wrap">
+          <div class="center">
+            <div class="eyebrow">Paid Consultation Booking</div>
+            <h2>Choose a topic. Pay. Reserve your time.</h2>
+            <p class="sub">
+              The booking flow is designed to reduce no-shows and make sure your
+              appointment is reserved for your specific issue.
+            </p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="num">STEP 01</div>
+              <h3>Select your consultation</h3>
+              <p class="sub">
+                Choose bookkeeping/tax, trucking compliance, payroll or general
+                business consultation.
+              </p>
+            </div>
+            <div class="step">
+              <div class="num">STEP 02</div>
+              <h3>Prepay securely</h3>
+              <p class="sub">
+                Payment is collected before the appointment is confirmed. Your
+                cancellation/rescheduling policy can be displayed at checkout.
+              </p>
+            </div>
+            <div class="step">
+              <div class="num">STEP 03</div>
+              <h3>Pick an available slot</h3>
+              <p class="sub">
+                Client receives confirmation, intake instructions and a secure
+                method to provide documents before the meeting.
+              </p>
+            </div>
+          </div>
+          <div
+            id="booking-placeholder"
+            style="text-align: center; margin-top: 32px"
+          >
+            <a class="btn" href="#booking-placeholder"
+              >Book & Prepay Consultation</a
+            >
+            <p class="legal">
+              Booking integration placeholder: connect this button to your
+              scheduling/payment provider (for example, a booking platform with
+              Stripe/Square payments). Do not collect sensitive tax or identity
+              documents through ordinary website forms.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="cta" id="about">
+        <div class="wrap split">
+          <div>
+            <h2>People. Businesses. Brighter futures.</h2>
+            <p>
+              FILESTOP brings business administration, financial services and
+              compliance support together under one roof—with specialized
+              services including TaxableBooks and DOT File Stop.
+            </p>
+          </div>
+          <div><a class="btn" href="#book">Schedule a Consultation</a></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div>
+            <h3>FILESTOP</h3>
+            <p>Business & Document Services</p>
+            <p>
+              1562 S Parker Rd #320<br />Denver, CO 80231<br />720-231-7569<br />dotfilestop@gmail.com
+            </p>
+          </div>
+          <div>
+            <h3>Focus</h3>
+            <p>
+              Bookkeeping<br />Taxes<br />Payroll<br />Trucking Compliance<br />Business
+              Consulting
+            </p>
+          </div>
+          <div>
+            <h3>Specialized Brands</h3>
+            <p>TaxableBooks<br />DOT File Stop<br />F-Stop Photo</p>
+            <p style="margin-top: 18px; color: #888; font-size: 12px">
+              QuickBooks Online ProAdvisor • BILL Certified • Gusto Partner •
+              RTS Financial affiliate
+            </p>
+          </div>
+        </div>
+        <div class="fine">
+          © 2026 FileStop. All rights reserved.
+          <div class="legal">
+            FileStop is not a law firm and does not provide legal
+            representation. Service descriptions are general and availability
+            may vary. Tax services are subject to engagement terms and
+            applicable preparer requirements.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
